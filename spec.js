@@ -762,7 +762,6 @@ describe('SIRUM Website V2', function() {
 
 
   it("should let me add drug",function(){
-    //NOTE: THIS FUNCTIONALITY IS CURRENTLY BUGGY BUT WERE IGNORING FOR NOW
     //browser.loadAndWaitForAureliaPage('http://localhost:9000');
     browser.refresh()
     browser.sleep(5000)
@@ -781,8 +780,9 @@ describe('SIRUM Website V2', function() {
     }
 
     element(by.name("pro_searchbar")).click()
+    element(by.name("pro_searchbar")).element(by.name("pro_input_field")).clear() //make the first drug ordered
     element(by.name("pro_searchbar")).element(by.name("pro_input_field")).sendKeys(drugs[0][1]) //make the first drug ordered
-    browser.sleep(2000)
+    browser.sleep(3000)
     element(by.css('[name="pro_search_res"]:nth-child(1)')).click()
     browser.sleep(4000)
     element(by.name("pro_switch")).click()
