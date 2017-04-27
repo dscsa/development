@@ -1,9 +1,11 @@
 // spec.js
 //Runs a series of tests on the SIRUM website
-//Designed to check on all use cases vigorously
+//Designed to check on all use cases
 //And allow for easy testing and improvements
 //TODO: find a way to run parts of it, or do it in sequence
 //Current goal is to run the entire thing from scratch and pass all the tests
+
+
 
 
 
@@ -16,6 +18,13 @@
 //-----------------------------PRE-REQS---------------------------------------------
 
 
+
+
+
+
+
+
+
 var hotkeys = require("protractor-hotkeys");
 var robot = require("robot-js")
 var keyboard = robot.Keyboard()
@@ -26,10 +35,21 @@ var mouse = robot.Mouse();
 
 
 
+
+
+
+
+
+
 //---------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
 //------------------------------DATA TO USE-------------------------------------------------
+
+
+
+
+
 
 
 
@@ -50,10 +70,24 @@ var invexps = ["2017-09","2023-12","2017-06"]
 
 
 
+
+
+
+
+
+
+
+
 //---------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
 //---------------------------------------------------------------------------------------
 //--------------------------------HELPER FUNCTION-------------------------------------------
+
+
+
+
+
+
 
 
 
@@ -207,6 +241,17 @@ var repack = function(qty,vials,exp,bin){
 
 
 
+
+
+
+
+
+
+
+
+
+
+
 describe('SIRUM Website V2', function() {
 
 
@@ -347,41 +392,41 @@ describe('SIRUM Website V2', function() {
     //Check that it requires facility
     element(by.name("pro_facility")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
     //Check that it requires facility phone
     element(by.name("pro_facility_phone")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
 
     //Check that street is required
     element(by.name("pro_street")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
 
     //check that city is required
     element(by.name("pro_city")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
  
     //check that zip is required
     element(by.name("pro_zip")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
 
     //check that email is required
     element(by.name("pro_email")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
 
@@ -389,16 +434,16 @@ describe('SIRUM Website V2', function() {
     element(by.name("pro_first_name")).element(by.name("input")).clear()
     element(by.name("pro_last_name")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
 
 
     //check that personal phone is required
     element(by.name("pro_personal_phone")).element(by.name("input")).clear()
     browser.sleep(2000)
-    expect(element(by.name("pro_install")).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
+    expect(element(by.name("pro_install")).element(by.css('[ref="button"]')).getAttribute('disabled')).toBe("true") //how to expect an unchecked box
     join(account)
-    //join(account)
+    
 
   })
 
@@ -448,16 +493,7 @@ describe('SIRUM Website V2', function() {
 
 
 
-  /* ACCOUNTS
-   * The testing for the accounts page should allow me to properly add a user
-   * and then switch to them by logging out logging back in with them. It should
-   * allow me to delete the user and then I can't log back in with them.
-   * It should not let me create a new user without properfieldsfor everything.
-   * It should list all the accounts we've added, and allow me to authorize/unauthorize
-   * them all, after which I need to check my resulting options on the 
-   * new shipment page.
-   *
-   */
+
   
   //START PAGE: LOGIN
   //END PAGE: SHIPMENT     
@@ -479,7 +515,6 @@ describe('SIRUM Website V2', function() {
     //This is how we access table elements
     var rows = element.all(protractor.by.css('[name="pro_account"]')) //gets all the rows
     expect(rows.count()).toEqual(accounts.length - 1)  //this is how you get the count of number of accounts listed
-    //var rowElems = element(by.css('[name="pro_account"]:nth-child(2)')).$$('td'); //this is how you get everything from a row (second here)
     
     //Check that all the other accounts[1:n] excluding accounts[0] is present
     for(var i = 1; i < accounts.length; i++){
@@ -515,7 +550,6 @@ describe('SIRUM Website V2', function() {
     for(var i = 1; i < accounts.length; i++){
       var account_line_name = '[name="pro_account"]:nth-child('
       var full = account_line_name.concat(i.toString()).concat(')')
-      //expect(element(by.css(full)).$$('td').get(1).getText()).toBe(accounts[accounts.length-i][0]); //check that all the facilities are there
     
       //while verifying, go ahead and check all their boxes
       element(by.css(full)).element(by.name('pro_checkbox')).click() //should unauthorize all accounts
@@ -527,10 +561,7 @@ describe('SIRUM Website V2', function() {
     for(var i = 1; i < accounts.length; i++){
       var account_line_name = '[name="pro_account"]:nth-child('
       var full = account_line_name.concat(i.toString()).concat(')')
-      //expect(element(by.css(full)).$$('td').get(1).getText()).toBe(accounts[accounts.length-i][0]); //check that all the facilities are there
     
-      //while verifying, go ahead and check all their boxes
-      //expect(element(by.css(full)).element(by.name('pro_checkbox')).click() //should unauthorize all accounts
       expect(element(by.css(full)).element(by.name('pro_checkbox')).element(by.name("pro_input")).getAttribute('checked')).toBe(null) //expect all the accounts to be unauthorized
       browser.sleep(3000)
     }
@@ -579,14 +610,10 @@ describe('SIRUM Website V2', function() {
     for(var i = 1; i < accounts.length; i++){
       var account_line_name = '[name="pro_account"]:nth-child('
       var full = account_line_name.concat(i.toString()).concat(')')
-      //expect(element(by.css(full)).$$('td').get(1).getText()).toBe(accounts[accounts.length-i][0]); //check that all the facilities are there
     
-      //while verifying, go ahead and check all their boxes
-      //expect(element(by.css(full)).element(by.name('pro_checkbox')).click() //should unauthorize all accounts
       if(i % 2 != 0){
         element(by.css(full)).element(by.name('pro_checkbox')).click() //should unauthorize all accounts
       }
-      //expect(element(by.css(full)).element(by.name('pro_checkbox')).element(by.name("pro_input")).getAttribute('checked')).toBe(null) //expect all the accounts to be unauthorized
       browser.sleep(1000)
     }
     element(by.css('[href="#/shipments"]')).click()
@@ -597,22 +624,12 @@ describe('SIRUM Website V2', function() {
     expect(options.count()).toEqual(3)
     expect(options).toEqual(["","GoodPill","Pilly"])
 
-    //selectDropdownbyNum(element(by.name("pro_from_option")),1).by.tagName('option'))
-    //expect(element(by.css('[name="pro_account"]:nth-child(1)')).$$('td').get(1).getText()).toBe(accounts[2][0]); //this is how you read the facility name
-    //expect(element(by.css('[name="pro_account"]:nth-child(2)')).$$('td').get(1).getText()).toBe(accounts[1][0]); //this is how you read the facility name
-    //expect(rowElems.get(2).getText()).toBe(accounts[1][0]); //this is how you read the facility name
-
   })
 
   //START PAGE: LOGIN
   //END PAGE: LOGIN  
   it("should let me add a user with correct info / log in with them / delete them / no longer be able to log in", function(){
     logout()
-    //browser.loadAndWaitForAureliaPage('http://localhost:9000');
-    //element(by.name('pro_phone')).element(by.name('input')).clear()
-    //element(by.name('pro_phone')).element(by.name('input')).sendKeys("123-456-7899") //The first one in our facility array
-    //element(by.name('pro_password')).element(by.name('input')).sendKeys("password")
-    //element(by.name('pro_button')).click()
     login(accounts[0][1],"password")
     browser.sleep(6000)
     expect(browser.getTitle()).toEqual('Shipments | SIRUM') 
@@ -638,17 +655,12 @@ describe('SIRUM Website V2', function() {
     element(by.name("pro_create_user_button")).click()
     browser.sleep(5000)
 
-   // name = "existing_users"
     element(by.css('[role="button"]')).click()
     browser.sleep(1000)
     var users = element.all(by.name("existing_users")).then(function(users){
-          //for(var i = 0; i < users.length; i++){
-           // users[i].click()
-         // }
          users[1].click()
         });
 
-    //element(by.css('[name="existing_users"]:nth-child(2)')).click() //nth-child as way of picking something from a list
     browser.sleep(1000)
     browser.actions().mouseMove(new_button,{x:500,y:200}).click().perform() //how to click away the drawer
     browser.sleep(1000)
@@ -668,9 +680,6 @@ describe('SIRUM Website V2', function() {
     element(by.css('[role="button"]')).click()
     browser.sleep(1000)
     var users = element.all(by.name("existing_users")).then(function(users){
-          //for(var i = 0; i < users.length; i++){
-           // users[i].click()
-         // }
          users[1].click()
         });
     browser.sleep(1000)
@@ -742,6 +751,9 @@ describe('SIRUM Website V2', function() {
   //--------------------------------------------------------------------------------------------
   //--------------------------------------------------------------------------------------------
   //-----------------------------------DRUG PAGE-------------------------------------------
+
+
+
 
 
 
@@ -891,7 +903,7 @@ describe('SIRUM Website V2', function() {
 
     type("pro_filter_input",accounts[0][0],-1)  //searching by account -- in this case unused account will return nothing
     browser.sleep(2000)
-    expect(element.all(protractor.by.css('[name="pro_shipments"]')).count()).toEqual(accounts.length)
+    expect(element.all(protractor.by.css('[name="pro_shipments"]')).count()).toEqual(shipments.length)
     browser.sleep(1000)
   })
 
@@ -929,9 +941,6 @@ describe('SIRUM Website V2', function() {
       } else {
         expect(element(by.css('[name="pro_transaction"]:nth-child(1)')).element(by.name('pro_checkbox')).element(by.name("pro_input")).getAttribute('checked')).toBe(null) //how to expect an unchecked box
       }
-     // element(by.css('[name="pro_account"]:nth-child(2)')).element(by.name('pro_checkbox')).click() //how to approve or not approve a donor
-     // browser.sleep(1000)
-      //expect(element(by.css('[name="pro_account"]:nth-child(2)')).element(by.name('pro_checkbox')).element(by.name("pro_input")).getAttribute('checked')).toBe(null) //how to expect a checked box
     }
 
     var drugsinShipment = element.all(by.name("pro_transaction"))
@@ -1165,9 +1174,6 @@ describe('SIRUM Website V2', function() {
     }
 
 
-    //element(by.css('[name="pro_transaction"]:nth-child(1)')).element(by.name('pro_transaction_checkbox')).click()  //will dispense this drug
-   // element(by.css('[name="pro_transaction"]:nth-child(2)')).element(by.name('pro_transaction_checkbox')).click()  //will dispense this drug
-    //element(by.css('[name="pro_transaction"]:nth-child(3)')).element(by.name('pro_transaction_checkbox')).click()  //will dispense this drug
     repack(30,1,exps[0],"T01")
     transactions = element.all(by.name("pro_transaction"))
     browser.sleep(2000)
@@ -1195,8 +1201,6 @@ describe('SIRUM Website V2', function() {
     element(by.name("pro_searchbar")).click()
     element(by.name("pro_searchbar")).element(by.name("pro_input_field")).sendKeys(bins[1])
     browser.sleep(3000)
-    //element(by.css('[name="pro_search_res"]:nth-child(1)')).click()
-    //browser.sleep(2000)
     //at this point all have quantity 55
 
     var transactions = element.all(by.name("pro_transaction"))
@@ -1232,9 +1236,7 @@ describe('SIRUM Website V2', function() {
     for(var i = 1; i <= resToExpect; i++){
       var drug_line_name = '[name="pro_transaction"]:nth-child('
       var full = drug_line_name.concat(i.toString()).concat(')')
-      //expect(element(by.css(full)).$$('td').get(1).getText()).toBe(accounts[accounts.length-i][0]); //check that all the facilities are there
       expect(element(by.css(full)).element(by.name("pro_transaction_checkbox")).element(by.name("pro_input")).getAttribute('checked')).toBe("true")
-      //while verifying, go ahead and check all their boxes
       element(by.css(full)).element(by.name('pro_transaction_checkbox')).click() //should unauthorize all accounts
       browser.sleep(1000)
     }
@@ -1242,10 +1244,7 @@ describe('SIRUM Website V2', function() {
     for(var i = 1; i <= resToExpect; i++){
       var drug_line_name = '[name="pro_transaction"]:nth-child('
       var full = drug_line_name.concat(i.toString()).concat(')')
-      //expect(element(by.css(full)).$$('td').get(1).getText()).toBe(accounts[accounts.length-i][0]); //check that all the facilities are there
       expect(element(by.css(full)).element(by.name("pro_transaction_checkbox")).element(by.name("pro_input")).getAttribute('checked')).toBe(null)
-      //while verifying, go ahead and check all their boxes
-      //element(by.css(full)).element(by.name('pro_transaction_checkbox')).click() //should unauthorize all accounts
       browser.sleep(1000)
     }
   })
@@ -1271,13 +1270,13 @@ describe('SIRUM Website V2', function() {
     element(by.name("pro_exp_filter")).element(by.name("pro_checkbox")).click()
     browser.sleep(2000)
     transactions = element.all(by.name("pro_transaction"))
-    expect(transactions.count()).toEqual(NUM_DRUGS_TO_ADD - 4)
+    expect(transactions.count()).toEqual(NUM_DRUGS_TO_ADD - 5)
     element(by.name("pro_exp_filter")).element(by.name("pro_checkbox")).click()
 
     element(by.name("pro_repack_filter")).element(by.name("pro_checkbox")).click()
     browser.sleep(2000)
     transactions = element.all(by.name("pro_transaction"))
-    expect(transactions.count()).toEqual(0)
+    expect(transactions.count()).toEqual(NUM_DRUGS_TO_ADD-2)
     element(by.name("pro_repack_filter")).element(by.name("pro_checkbox")).click()
 
     element(by.name("pro_form_filter")).element(by.name("pro_checkbox")).click()

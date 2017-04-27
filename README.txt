@@ -88,6 +88,7 @@ Working on getting the code to run as one encapsulated chunk without me having t
 
 4/26/17
 Ironing out the kinks in running the whole suite of tests. It's all incorporated in the development repo in my fork, and my fork of client has all the markups. At this point I need to get it to be able to run start-finish and then I can submit pull requests for all this. Then it will be a question of expanding this testing to the point that I feel comfortable calling the site tested based SOLELY on these suites.
+Runtime: 15 minutes
 
 Step Log:
 - Keep the Drugs page commented out - CANT
@@ -106,6 +107,7 @@ Step Log:
 TODO for V2 Of E2E:
 - Build in a way for each chunk testing (login/join/shipments/inventory) to start from scratch by closing the window and reopening one, that way if one hits a terminal failure it doesn't kill the entire thing. 
 - Fine tune the timing and see where sleep is necessary, where it's not, and if there's less fragile ways to build this out.
+     - Make it faster overall
 - Edit the Join function to be more efficient
 - Expand the amount and use of helper functions to simplify the code
 - Clean up comments and code quality
