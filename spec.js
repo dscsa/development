@@ -258,7 +258,7 @@ describe('SIRUM Website V2', function() {
 
 
 
-/*
+
   //START PAGE: LOGIN
   //END PAGE: SHIPMENTS  
  it("should let me create the accounts we'll be using",function(){
@@ -271,14 +271,14 @@ describe('SIRUM Website V2', function() {
       join(accounts[i])
       browser.sleep(2000)
       element(by.name("pro_checkbox")).click()
-      browser.sleep(2000)
+      browser.sleep(1000)
       element(by.name("pro_install")).click()
       browser.sleep(6000)
       expect(browser.getTitle()).toEqual('Shipments | SIRUM'); //check that it's logged in
       element(by.css('[href="#/account"]')).click() //How to click on any of the navbar elements
       browser.sleep(2000)
       element(by.name("pro_uninstall_button")).click()
-      browser.sleep(5000)
+      browser.sleep(3000)
       expect(browser.getTitle()).toEqual('Login | SIRUM');
       element(by.css('[href="#/join"]')).click() //Go to the join page
       browser.sleep(2000) //wait for it to load
@@ -289,10 +289,10 @@ describe('SIRUM Website V2', function() {
     login(accounts[0][1],"password")
     browser.sleep(5000)
     logout()
-  })*/
+  })
   
   
-/*
+
   //START PAGE: SHIPMENTS
   //END PAGE: SHIPMENTS  
   it("should let me log out and then log back in multiple times",function(){
@@ -402,7 +402,7 @@ describe('SIRUM Website V2', function() {
 
   })
 
-*/
+
 
 
 
@@ -458,14 +458,14 @@ describe('SIRUM Website V2', function() {
    * new shipment page.
    *
    */
-  /*
+  
   //START PAGE: LOGIN
   //END PAGE: SHIPMENT     
   it("should let me check the accounts are all there", function(){//, approve some, unauthorize all, work with that", function(){
-    browser.loadAndWaitForAureliaPage('http://localhost:9000');
-    browser.sleep(4000)
+    //browser.loadAndWaitForAureliaPage('http://localhost:9000');
+    //browser.sleep(4000)
 
-    //element(by.css('[href="#/login"]')).click() 
+    element(by.css('[href="#/login"]')).click() 
     browser.sleep(3000)
     login(accounts[0][1],"password")
     browser.sleep(6000)
@@ -683,7 +683,7 @@ describe('SIRUM Website V2', function() {
     login("456-098-2002","password") //prove you can log in with the new user
     expect(element(by.css('[ref="snackbar"]')).element(by.name('pro_text')).getText()).toBe('Login failed deleted') //how we can read snackbar
     browser.sleep(2000)
-  })*/
+  })
   
 
 
@@ -759,11 +759,12 @@ describe('SIRUM Website V2', function() {
 
 
 
-/*
+
 
   it("should let me add drug",function(){
     //NOTE: THIS FUNCTIONALITY IS CURRENTLY BUGGY BUT WERE IGNORING FOR NOW
-    browser.loadAndWaitForAureliaPage('http://localhost:9000');
+    //browser.loadAndWaitForAureliaPage('http://localhost:9000');
+    browser.refresh()
     browser.sleep(5000)
     login(accounts[0][1],"password")
     browser.sleep(3000)
@@ -781,14 +782,14 @@ describe('SIRUM Website V2', function() {
 
     element(by.name("pro_searchbar")).click()
     element(by.name("pro_searchbar")).element(by.name("pro_input_field")).sendKeys(drugs[0][1]) //make the first drug ordered
-    browser.sleep(1000)
+    browser.sleep(2000)
     element(by.css('[name="pro_search_res"]:nth-child(1)')).click()
     browser.sleep(4000)
     element(by.name("pro_switch")).click()
-    browser.sleep(1000)
+    browser.sleep(4000)
   })
 
-*/
+
 
 
 
@@ -854,10 +855,10 @@ describe('SIRUM Website V2', function() {
   //END PAGE: NEW SHIPMENT  
   it("should let me create new shipments",function(){
     //openPageFromScratch()
-    //logout()
+    logout()
 
     //login("123-456-7899","password")
-    browser.loadAndWaitForAureliaPage('http://localhost:9000');
+    //browser.loadAndWaitForAureliaPage('http://localhost:9000');
     browser.sleep(5000)
     login(accounts[0][1],"password")
     browser.sleep(3000)

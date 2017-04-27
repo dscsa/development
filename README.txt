@@ -13,6 +13,7 @@ npm install protractor-numerator
 npm install robot-js
 
 
+Make sure all the databases are empty, then restart the server and then run the client.
 
 To run the testing, issue the following command after you've got the server up and running:
 
@@ -85,6 +86,9 @@ Current Situation:
 4/24/17
 Working on getting the code to run as one encapsulated chunk without me having to write anything in. Can basically do that with shipments and inventory right now. Will need expand this to include the users/accounts/drugs testing. Once it can run through like this and all the expectations are lined up and it doesn't fail on timing anywhere, then I want to expand robustness of certain transaction related tasks. Then can begin integrating into the development repo and considering chunking of any sort.
 
+4/26/17
+Ironing out the kinks in running the whole suite of tests. It's all incorporated in the development repo in my fork, and my fork of client has all the markups. At this point I need to get it to be able to run start-finish and then I can submit pull requests for all this. Then it will be a question of expanding this testing to the point that I feel comfortable calling the site tested based SOLELY on these suites.
+
 Step Log:
 - Keep the Drugs page commented out - CANT
 - Delete all the other databases and try running all the other tests together 
@@ -97,6 +101,11 @@ Step Log:
 - Should have all the essential markups in Drugs done, so can comit to Adam
 - Sometimes login button is funky? --> Added lag between entering values and seeing results
 - Before moving over to the dscsa/development repo, add commented out lines to each segment, with the necessary code to start from that bit alone, so we can easily in-code decide which chunks of code to run. Can be cleaner in the future
+- Incorporated into the development repo, and all the changes to client are pushed. Once the test is all ironed out, I will submit pull requests
 
-
-
+TODO for V2 Of E2E:
+- Build in a way for each chunk testing (login/join/shipments/inventory) to start from scratch by closing the window and reopening one, that way if one hits a terminal failure it doesn't kill the entire thing. 
+- Fine tune the timing and see where sleep is necessary, where it's not, and if there's less fragile ways to build this out.
+- Edit the Join function to be more efficient
+- Expand the amount and use of helper functions to simplify the code
+- Clean up comments and code quality
