@@ -26,9 +26,9 @@
 
 
 var hotkeys = require("protractor-hotkeys");
-var robot = require("robot-js")
-var keyboard = robot.Keyboard()
-var mouse = robot.Mouse();
+//var robot = require("robot-js")
+//var keyboard = robot.Keyboard()
+//var mouse = robot.Mouse();
 
 
 
@@ -210,14 +210,14 @@ var repack = function(qty,vials,exp,bin){
     element(by.name("pro_repack_bin")).element(by.name("input")).sendKeys(bin)
     browser.sleep(1000)
     element(by.name("pro_repack_selected")).click()
-    browser.sleep(6000).then(_=>{
-      var pos = robot.Mouse.getPos();
-      robot.Mouse.setPos (pos.sub (50));
-      mouse.click (robot.BUTTON_LEFT)
-      var bool = keyboard.click("{ESCAPE}")
-      console.log(bool)
-      browser.sleep(10000)
-    })
+    browser.sleep(10000)//.then(_=>{
+      //var pos = robot.Mouse.getPos();
+      //robot.Mouse.setPos (pos.sub (50));
+      //mouse.click (robot.BUTTON_LEFT)
+      //var bool = keyboard.click("{ESCAPE}")
+      //console.log(bool)
+      //browser.sleep(10000)
+    //})
 }   
 
 
