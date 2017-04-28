@@ -13,6 +13,7 @@ npm install protractor-numerator
 //npm install robot-js IGNORE THIS FOR NOW, OUT OF SYNC WITH NODE
 
 
+
 Make sure all the databases are empty, then restart the server and then run the client.
 
 To run the testing, issue the following command after you've got the server up and running:
