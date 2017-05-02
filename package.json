@@ -10,7 +10,7 @@
   "scripts":{
     "postinstall":"bash install.sh",
     "start":"node ../aurelia-cli/bin/aurelia-cli.js run --watch",
-    "test":"node_modules/protractor/bin/protractor conf.js"
+    "test":"../protractor/bin/protractor conf.js"
   },
   "dependencies": {
     "server":"https://github.com/dscsa/server",
