@@ -4,11 +4,11 @@ echo ensure couchDB is running on your local computer
 
 #replace installs with git repos
 cd ../
-sudo git clone https://github.com/dscsa/development
-sudo git clone https://github.com/dscsa/client
-sudo git clone https://github.com/dscsa/server
-sudo git clone https://github.com/dscsa/pouch
-sudo git clone https://github.com/dscsa/csv
+rm -R development && sudo git clone https://github.com/dscsa/development
+rm -R client && sudo git clone https://github.com/dscsa/client
+rm -R server && sudo git clone https://github.com/dscsa/server
+rm -R pouch && sudo git clone https://github.com/dscsa/pouch
+rm -R csv && sudo git clone https://github.com/dscsa/csv
 
 #install scripts so npm start, npm run server, npm run client, and npm test all work
 ln -s development/package.json ../package.json
