@@ -8,10 +8,13 @@
   },
   "license": "MIT",
   "scripts":{
-    "postinstall":"bash install.sh"
+    "postinstall":"bash install.sh",
+    "start":"npm run client | npm run server",
+    "client":"node node_modules/aurelia-cli/bin/aurelia-cli.js run --watch",
+    "server":"node node_modules/server",
+    "test":"node_modules/protractor/bin/protractor conf.js"
   },
   "dependencies": {
-    "server":"https://github.com/dscsa/server",
     "aurelia-http-client": "^1.0.0-rc.1.0.0",
     "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
     "aurelia-fetch-client": "^1.0.0-rc.1.0.0",
