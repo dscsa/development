@@ -7,6 +7,13 @@
     "url": "???"
   },
   "license": "MIT",
+  "scripts":{
+    "preinstall":"./install.sh",
+    "start":"npm run client | npm run server",
+    "client":"node ../aurelia-cli/bin/aurelia-cli.js run --watch",
+    "server":"node ../server",
+    "test":"../protractor/bin/protractor conf.js"
+  },
   "dependencies": {
     "server":"https://github.com/dscsa/server",
     "aurelia-http-client": "^1.0.0-rc.1.0.0",
