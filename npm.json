@@ -1,0 +1,7 @@
+{
+  "scripts":{
+    "client":"npm run --prefix node_modules/development client",
+    "server":"npm run --prefix node_modules/development server",
+    "test":"npm run --prefix node_modules/development test"
+  }
+}
