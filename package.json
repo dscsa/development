@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts":{
-    "preinstall":"./install.sh",
+    "preinstall":"bash install.sh",
     "start":"npm run client | npm run server",
     "client":"node ../aurelia-cli/bin/aurelia-cli.js run --watch",
     "server":"node ../server",
