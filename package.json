@@ -9,9 +9,8 @@
   "license": "MIT",
   "scripts":{
     "postinstall":"bash install.sh",
-    "start":"npm run client | npm run server",
-    "client":"node node_modules/aurelia-cli/bin/aurelia-cli.js run --watch",
-    "server":"node node_modules/server",
+    "client":"node ../aurelia-cli/bin/aurelia-cli.js run --watch",
+    "server":"node ../server",
     "test":"node_modules/protractor/bin/protractor conf.js"
   },
   "dependencies": {

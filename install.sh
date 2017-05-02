@@ -1,8 +1,12 @@
 #!/bin/bash
 # Preinstall script for dscsa/development to setup the proper folder structure
-echo ensure couchDB is running on your local computer
+echo installation almost complete...
+echo ensure couchDB is running on your local computer,
+echo then run 'sudo npm run server' and 'npm run client'
+echo sudo is necessary for the server to bind to port 80
+echo test both http://localhost and http://localhost:9000 work
 
-#replace installs with git repos
+#replace installs with git repos.  Since we are in development we need to leave before deleting
 cd ../
 rm -R development && sudo git clone https://github.com/dscsa/development
 rm -R client && sudo git clone https://github.com/dscsa/client
@@ -10,8 +14,5 @@ rm -R server && sudo git clone https://github.com/dscsa/server
 rm -R pouch && sudo git clone https://github.com/dscsa/pouch
 rm -R csv && sudo git clone https://github.com/dscsa/csv
 
-#install scripts so npm start, npm run server, npm run client, and npm test all work
-cd ../ #for some reason ln -s needs to be in destination directory, paths are not enough
-ln -s node_modules/development/package.json package.json
-
-echo test that both http://localhost and http://localhost:9000 now serve the app
+#go back to development folder so npm run server, npm run client, and npm test all work
+cd development
