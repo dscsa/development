@@ -7,14 +7,11 @@ do
   echo "$entry"
 done
 
-#get out of development directory and into node_modules
-cd ../
-
 #replace symlinks with git repos
-rm -R client && sudo git clone https://github.com/dscsa/client
-rm -R server && sudo git clone https://github.com/dscsa/server
-rm -R pouch && sudo git clone https://github.com/dscsa/pouch
-rm -R csv && sudo git clone https://github.com/dscsa/csv
+rm -R ../client && sudo git clone https://github.com/dscsa/client ../
+rm -R ../server && sudo git clone https://github.com/dscsa/server ../
+rm -R ../pouch && sudo git clone https://github.com/dscsa/pouch ../
+rm -R ../csv && sudo git clone https://github.com/dscsa/csv ../
 
 #start the server and client
 npm start
