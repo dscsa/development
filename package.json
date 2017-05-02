@@ -8,10 +8,12 @@
   },
   "license": "MIT",
   "dependencies": {
+    "server":"https://github.com/dscsa/server",
     "aurelia-http-client": "^1.0.0-rc.1.0.0",
     "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
     "aurelia-fetch-client": "^1.0.0-rc.1.0.0",
     "aurelia-animator-css": "^1.0.0-rc.1.0.0",
+    "aurelia-protractor-plugin":"1.0.3",
     "bluebird": "^3.4.1",
     "aurelia-cli": "^0.16.1",
     "aurelia-testing": "^1.0.0-beta.1.0.0",
@@ -25,6 +27,8 @@
     "gulp-sourcemaps": "^2.0.0-alpha",
     "gulp-notify": "^2.2.0",
     "minimatch": "^3.0.2",
+    "protractor":"6.9.4",
+    "protractor-hotkeys":"0.12.4",
     "through2": "^2.0.1",
     "uglify-js": "^2.6.3",
     "vinyl-fs": "^2.4.3",
@@ -40,6 +44,7 @@
     "babel-polyfill": "^6.9.1",
     "babel-register": "^6.9.0",
     "gulp-babel": "^6.1.2",
-    "gulp-eslint": "^2.0.0"
+    "gulp-eslint": "^2.0.0",
+    "selenium":"2.20.0"
   }
 }
