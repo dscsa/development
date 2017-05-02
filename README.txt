@@ -10,7 +10,8 @@ npm install selenium
 npm install aurelia/protractor-plugin   //this repo sometimes changes location, and can be edited in 											conf.js so you access index.js, or whichever file has all 											the helpers, likeloadAndWaitForAureliaPage
 npm install protractor-hotkeys
 npm install protractor-numerator
-npm install robot-js
+//npm install robot-js IGNORE THIS FOR NOW, OUT OF SYNC WITH NODE
+
 
 
 Make sure all the databases are empty, then restart the server and then run the client.
