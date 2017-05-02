@@ -35,7 +35,7 @@
     "gulp-notify": "^2.2.0",
     "minimatch": "^3.0.2",
     "protractor":"6.9.4",
-    "protractor-hotkeys":"0.12.4",
+    "protractor-hotkeys":"0.0.5",
     "through2": "^2.0.1",
     "uglify-js": "^2.6.3",
     "vinyl-fs": "^2.4.3",
