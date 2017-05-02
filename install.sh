@@ -2,7 +2,14 @@
 # Preinstall script for dscsa/development to setup the proper folder structure
 echo ensure couchDB is running on your local computer
 
-cd node_modules
+for entry in ./*
+do
+  echo "$entry"
+done
+
+#get out of development directory and into node_modules
+cd ../
+
 #replace symlinks with git repos
 rm -R client && sudo git clone https://github.com/dscsa/client
 rm -R server && sudo git clone https://github.com/dscsa/server
