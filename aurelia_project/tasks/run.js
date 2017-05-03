@@ -5,34 +5,13 @@ import project from '../aurelia.json';
 import build from './build';
 import {CLIOptions} from 'aurelia-cli';
 
-let node, spawn = require('child_process').spawn //adam: https://gist.github.com/webdesserts/5632955
-
-function keys(done) {
-  let fs      = require('fs')
-  let rl      = require('readline').createInterface({input:process.stdin, output:process.stdout})
-
-  try {
-    fs.accessSync(__dirname+'/../../../../keys/dev.js')
-    done()
-  } catch(e) {
-    fs.mkdir(__dirname+'/../../../../keys', err => {
-      rl.question(`What is the CouchDB admin username?`, username => {
-        rl.question(`What is the CouchDB admin password?`, password => {
-          fs.writeFileSync(__dirname+'/../../../../keys/dev.js', `exports.username = '${username}'\nexports.password = '${password}'`)
-          rl.close()
-          done()
-        })
-      })
-    })
-  }
-}
+let node
+let spawn = require('child_process').spawn //adam: https://gist.github.com/webdesserts/5632955
+let keys  = require('../../../server/keys')
 
 function server(done) {
   if (node) node.kill()
   node = spawn('node', ['../server'], {stdio: 'inherit'})
-  node.on('close', function (code) {
-    console.log('node closed', code)
-  });
   done()
 }
 
