@@ -1,6 +1,6 @@
 #!/bin/bash
 # Preinstall script for dscsa/development to setup the proper folder structure
-#
+
 #replace installs with git repos.  Since we are in development we need to leave before deleting
 cd ../
 rm -R development && sudo git clone https://github.com/dscsa/development
