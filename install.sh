@@ -3,11 +3,11 @@
 
 #replace installs with git repos.  Since we are in development we need to leave before deleting
 cd ../
-rm -R development && sudo git clone https://github.com/dscsa/development
-rm -R client && sudo git clone https://github.com/dscsa/client
-rm -R server && sudo git clone https://github.com/dscsa/server
-rm -R pouch && sudo git clone https://github.com/dscsa/pouch
-rm -R csv && sudo git clone https://github.com/dscsa/csv
+rm -R development && sudo git clone https://github.com/dscsa/development && chmod -R 777 development
+rm -R client && sudo git clone https://github.com/dscsa/client && chmod -R 777 client
+rm -R server && sudo git clone https://github.com/dscsa/server  && chmod -R 777 server
+rm -R pouch && sudo git clone https://github.com/dscsa/pouch && chmod -R 777 pouch
+rm -R csv && sudo git clone https://github.com/dscsa/csv && chmod -R 777 csv
 
 #provide npm run server, npm run client, and npm test to parent directory
 cp development/npm.json ../package.json
