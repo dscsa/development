@@ -33,6 +33,9 @@
     "fileExtension": ".css",
     "source": "../client/src/**/*.css"
   },
+  "server": {
+    "source": "../server/**/*.js"
+  },
   "editor": {
     "id": "atom",
     "displayName": "Atom"

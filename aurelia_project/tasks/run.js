@@ -5,6 +5,17 @@ import project from '../aurelia.json';
 import build from './build';
 import {CLIOptions} from 'aurelia-cli';
 
+var node, spawn = require('child_process').spawn //adam: https://gist.github.com/webdesserts/5632955
+
+function server(done) {
+  if (node) node.kill()
+  node = spawn('node', ['../server'], {stdio: 'inherit'})
+  node.on('close', function (code) {
+    console.log('node closed', code)
+  });
+  done()
+}
+
 function onChange(path) {
   console.log(`File Changed: ${path}`);
 }
@@ -21,6 +32,7 @@ for (let i in project.paths)
     routes[i] = project.paths.root+project.paths[i]
 
 let serve = gulp.series(
+  server,
   build,
   done => {
     browserSync({
@@ -42,8 +54,7 @@ let serve = gulp.series(
       console.log(`BrowserSync Available At: ${urls.ui}`);
       done();
     });
-  },
-  done => { require('../../../server'); done() }
+  }
 );
 
 let refresh = gulp.series(
@@ -52,6 +63,7 @@ let refresh = gulp.series(
 );
 
 let watch = function() {
+  gulp.watch(project.server.source, server).on('change', onChange);
   gulp.watch(project.transpiler.source, refresh).on('change', onChange);
   gulp.watch(project.markupProcessor.source, refresh).on('change', onChange);
   gulp.watch(project.cssProcessor.source, refresh).on('change', onChange)
