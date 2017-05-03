@@ -81,7 +81,7 @@
     },
     "bundles": [
       {
-        "name": "dscsa-client.js",
+        "name": "client.js",
         "source":[
           "[**/*.js]",
           "**/*.{css,html}"
