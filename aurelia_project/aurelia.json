@@ -57,12 +57,12 @@
       {
         "id": "web",
         "displayName": "Web",
-        "output": "../client/assets"
+        "output": "../client"
       }
     ],
     "loader": {
       "type": "require",
-      "configTarget": "aurelia.js",
+      "configTarget": "assets/aurelia.js",
       "includeBundleMetadataInConfig": "auto",
       "plugins": [
         {
@@ -81,14 +81,14 @@
     },
     "bundles": [
       {
-        "name": "client.js",
+        "name": "assets/client.js",
         "source":[
           "[**/*.js]",
           "**/*.{css,html}"
         ]
       },
       {
-        "name": "aurelia.js",
+        "name": "assets/aurelia.js",
         "prepend": [
           "../bluebird/js/browser/bluebird.core.js",
           "aurelia_project/require.js"
@@ -222,12 +222,6 @@
             "name": "aurelia-templating-router",
             "path": "aurelia-templating-router/dist/amd",
             "main": "aurelia-templating-router"
-          },
-          {
-            "name": "aurelia-testing",
-            "path": "aurelia-testing/dist/amd",
-            "main": "aurelia-testing",
-            "env": "dev"
           }
         ]
       }
