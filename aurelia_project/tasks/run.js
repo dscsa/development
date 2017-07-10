@@ -7,7 +7,7 @@ import {CLIOptions} from 'aurelia-cli';
 
 let node
 let spawn = require('child_process').spawn //adam: https://gist.github.com/webdesserts/5632955
-let keys  = require('../../../server/keys')
+let keys  = require('../../../server/helpers/keys')
 
 function server(done) {
   if (node) node.kill()
