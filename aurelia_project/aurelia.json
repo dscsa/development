@@ -6,7 +6,7 @@
     "displayName": "Babel",
     "fileExtension": ".js",
     "options": {
-      "sourceMap": true,
+      "sourceMap": false,
       "moduleIds": false,
       "comments": false,
       "compact": false,
