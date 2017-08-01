@@ -6,7 +6,7 @@
     "displayName": "Babel",
     "fileExtension": ".js",
     "options": {
-      "sourceMap": false,
+      "sourceMap": true,
       "moduleIds": false,
       "comments": false,
       "compact": false,
@@ -77,7 +77,7 @@
     },
     "options": {
       "minify": "stage & prod",
-      "sourcemaps": "dev & stage"
+      "sourcemaps": "stage & prod"
     },
     "bundles": [
       {
