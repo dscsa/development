@@ -18,7 +18,6 @@
     "aurelia-bootstrapper": "^1.0.0-rc.1.0.0",
     "aurelia-fetch-client": "^1.0.0-rc.1.0.0",
     "aurelia-animator-css": "^1.0.0-rc.1.0.0",
-    "aurelia-protractor-plugin":"1.0.3",
     "bluebird": "^3.4.1",
     "aurelia-cli": "^0.16.1",
     "aurelia-testing": "^1.0.0-beta.1.0.0",

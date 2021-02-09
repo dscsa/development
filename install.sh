@@ -17,6 +17,7 @@ cp development/npm.json ../package.json
 
 # downloading protractor doesn't update automatically
 # package.json
+#   "aurelia-protractor-plugin":"1.0.3",
 #   "protractor":"5.1.1",
 #   "protractor-hotkeys":"0.0.5",
 # sudo ./protractor/node_modules/webdriver-manager/bin/webdriver-manager update
