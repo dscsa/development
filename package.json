@@ -8,7 +8,7 @@
   },
   "license": "MIT",
   "scripts":{
-    "postinstall":"bash install.sh",
+    "commentout postinstall":"bash install.sh",
     "start":"node ../aurelia-cli/bin/aurelia-cli.js run --watch",
     "test":"../protractor/bin/protractor conf.js"
   },
