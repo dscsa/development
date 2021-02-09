@@ -10,7 +10,7 @@ rm -R pouch && sudo git clone https://github.com/dscsa/pouch
 rm -R csv && sudo git clone https://github.com/dscsa/csv
 
 #installing with bash put permission to root only, update to all users
-sudo chmod -R 777 ./
+sudo chmod -R 777 ./node_modules
 
 #provide npm run server, npm run client, and npm test to parent directory
 cp development/npm.json ../package.json
