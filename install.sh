@@ -13,7 +13,7 @@
 # sudo chmod -R 777 ./node_modules
 
 #provide npm run server, npm run client, and npm test to parent directory
-cp development/npm.json ../package.json
+cp ./node_modules/development/npm.json package.json
 
 # downloading protractor doesn't update automatically
 # package.json
